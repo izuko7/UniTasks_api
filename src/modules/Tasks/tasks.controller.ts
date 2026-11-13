@@ -10,6 +10,7 @@ import {
 	Patch,
 	Post,
 	Query,
+    UseGuards,
 } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { Session, type UserSession } from "@thallesp/nestjs-better-auth";
@@ -17,9 +18,11 @@ import { CreateTaskDto } from "./dto/create-task.dto.js";
 import { ListTasksQueryDto } from "./dto/list-task.dto.js";
 import { UpdateTaskDto } from "./dto/update-task.dto.js";
 import { TasksService } from "./tasks.service.js";
+import { SessionGuard } from "../../common/guards/session.guard.js";
 
 @ApiTags("tasks")
 @ApiBearerAuth()
+@UseGuards(SessionGuard)
 @Controller("tasks")
 export class TasksController {
 	constructor(private readonly tasksService: TasksService) {}
