@@ -8,6 +8,7 @@ import { ZodValidationPipe } from 'nestjs-zod';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { PrismaModule } from './prisma/prisma.module.js';
+import { TasksModule } from './modules/Tasks/tasks.module.js';
 import { AuthModule } from './auth/auth.module.js';
 import { envSchema } from './config/env.schema.js';
 import { AllExceptionsFilter } from './common/filters/http-exception.filter.js';
@@ -27,6 +28,7 @@ import { AllExceptionsFilter } from './common/filters/http-exception.filter.js';
 		TerminusModule,
 		PrismaModule,
 		AuthModule,
+		TasksModule,
 	],
 	controllers: [AppController],
 	providers: [
